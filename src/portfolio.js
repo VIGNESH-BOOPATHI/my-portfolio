@@ -114,22 +114,24 @@ const educationInfo = {
   schools: [
     {
       schoolName: "Vel Tech Multi Tech Dr.Rangarajan Dr.Sakunthala Engineering College",
-      logo: require("./assets/images/harvardLogo.png"),
+      logo: require("./assets/images/velmutitech.png"),
       subHeader: "Electronic And Communication Engineering(ECE)",
       duration: "September 2019 - April 2023",
-      desc: "Participated in the research of XXX and published 3 papers.",
+      desc: "Designed and developed an AI-integrated quadruped robot capable of autonomous movement, voice commands, and remote control over the internet.",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        "Built a four-legged robot using embedded systems and IoT",
+        "Implemented AI for autonomous navigation and voice control"
+
       ]
     },
     {
-      schoolName: "Stanford University",
-      logo: require("./assets/images/stanfordLogo.png"),
-      subHeader: "Bachelor of Science in Computer Science",
-      duration: "September 2013 - April 2017",
-      desc: "Ranked top 10% in the program. Took courses about Software Engineering, Web Security, Operating Systems, ...",
-      descBullets: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit"]
+      schoolName: "GUVI Geek Networks, IITM Research Park",
+      logo: require("./assets/images/Screenshot 2025-07-25 224459.png"),
+      subHeader: "MERN Full Stack Developer",
+      duration: "September 2023 - April 2024",
+      desc: "Completed full stack training with real-world projects. Built an end-to-end car rental platform inspired by Zoomcar called AutoShare.",
+      descBullets: ["Developed AutoShare using React, Node.js, Express, and MongoDB",
+        "Learned Git, REST APIs, JWT auth, and deployment practices"]
     }
   ]
 };
@@ -357,11 +359,12 @@ const resumeSection = {
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle:
-    "Discuss a project or just want to say hi? My Inbox is open for all.",
+  subtitle: "Discuss a project or just want to say hi? My Inbox is open for all.",
   number: "+91-6381012767",
-  email_address: "vigneshboopathi@gmail.com"
+  email_address: "vigneshboopathi@gmail.com",
+  display: true
 };
+
 
 // Twitter Section
 
@@ -370,7 +373,7 @@ const twitterDetails = {
   display: true // Set true to display this section, defaults to false
 };
 
-const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
+const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
 
 export {
   illustration,
