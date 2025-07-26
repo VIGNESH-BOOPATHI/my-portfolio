@@ -1,5 +1,5 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
-import { openSource } from "../../portfolio";
+import React, {useState, useEffect, lazy, Suspense} from "react";
+import {openSource} from "../../portfolio";
 import Contact from "../contact/Contact";
 import Loading from "../loading/Loading";
 import axios from "axios";
@@ -20,7 +20,7 @@ export default function Profile() {
 
         const headers = token
           ? {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${token}`
             }
           : {};
 
@@ -38,9 +38,9 @@ export default function Profile() {
                   isHireable
                 }
               }
-            `,
+            `
           },
-          { headers }
+          {headers}
         );
 
         setRepo(response.data.data.user);
