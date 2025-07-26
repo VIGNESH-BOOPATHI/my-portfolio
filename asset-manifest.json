@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.58cc485f.css",
-    "main.js": "/my-portfolio/static/js/main.6e8cbc3f.js",
+    "main.js": "/my-portfolio/static/js/main.ed8c27fd.js",
     "static/css/487.bb36206c.chunk.css": "/my-portfolio/static/css/487.bb36206c.chunk.css",
     "static/js/487.a1ec5645.chunk.js": "/my-portfolio/static/js/487.a1ec5645.chunk.js",
     "static/css/990.c6a7ee28.chunk.css": "/my-portfolio/static/css/990.c6a7ee28.chunk.css",
@@ -9,7 +9,7 @@
     "static/media/Banner1.png": "/my-portfolio/static/media/Banner1.aa0ee5893a79d61d6ec9.png",
     "static/media/car-site.png": "/my-portfolio/static/media/car-site.2a3c1c7d0ba55f8047c3.png",
     "static/media/robo.png": "/my-portfolio/static/media/robo.947d214ac07c25428523.png",
-    "static/media/VIGNESH (RESUME).pdf": "/my-portfolio/static/media/VIGNESH (RESUME).0b5c74f2b673189d8faa.pdf",
+    "static/media/VIGNESH (RESUME).pdf": "/my-portfolio/static/media/VIGNESH (RESUME).53c2ef306908786345eb.pdf",
     "static/media/Montserrat-Regular.ttf": "/my-portfolio/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/HennyPenny-Regular.ttf": "/my-portfolio/static/media/HennyPenny-Regular.99be21913fda42f89d5c.ttf",
     "static/media/manOnTable.svg": "/my-portfolio/static/media/manOnTable.8f117eb207e57ed8f89d67d595aceb45.svg",
@@ -22,7 +22,7 @@
     "static/media/nextuLogo.webp": "/my-portfolio/static/media/nextuLogo.e033dbfa4c58c0a906aa.webp",
     "index.html": "/my-portfolio/index.html",
     "main.58cc485f.css.map": "/my-portfolio/static/css/main.58cc485f.css.map",
-    "main.6e8cbc3f.js.map": "/my-portfolio/static/js/main.6e8cbc3f.js.map",
+    "main.ed8c27fd.js.map": "/my-portfolio/static/js/main.ed8c27fd.js.map",
     "487.bb36206c.chunk.css.map": "/my-portfolio/static/css/487.bb36206c.chunk.css.map",
     "487.a1ec5645.chunk.js.map": "/my-portfolio/static/js/487.a1ec5645.chunk.js.map",
     "990.c6a7ee28.chunk.css.map": "/my-portfolio/static/css/990.c6a7ee28.chunk.css.map",
@@ -30,6 +30,6 @@
   },
   "entrypoints": [
     "static/css/main.58cc485f.css",
-    "static/js/main.6e8cbc3f.js"
+    "static/js/main.ed8c27fd.js"
   ]
 }
