@@ -230,7 +230,7 @@ const bigProjects = {
       ]
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Achievement Section
@@ -243,56 +243,52 @@ const achievementSection = {
 
   achievementsCards: [
     {
-      title: "Google Code-In Finalist",
+      title: "AutoShare Car Rental Platform",
       subtitle:
-        "First Pakistani to be selected as Google Code-in Finalist from 4000 students from 77 different countries.",
-      image: require("./assets/images/codeInLogo.webp"),
-      imageAlt: "Google Code-In Logo",
+        "Built a full-stack Zoomcar-like car rental application with separate React frontend and Node.js/Express backend. Used MongoDB for database and JWT for user authentication.",
+      image: require("./assets/images/car-site.png"), // Add a custom image for AutoShare
+      imageAlt: "AutoShare Project",
       footerLink: [
         {
-          name: "Certification",
-          url: "https://drive.google.com/file/d/0B7kazrtMwm5dYkVvNjdNWjNybWJrbndFSHpNY2NFV1p4YmU0/view?usp=sharing"
+          name: "Frontend Repo",
+          url: "https://github.com/VIGNESH-BOOPATHI/autoshare-frontend"
         },
         {
-          name: "Award Letter",
-          url: "https://drive.google.com/file/d/0B7kazrtMwm5dekxBTW5hQkg2WXUyR3QzQmR0VERiLXlGRVdF/view?usp=sharing"
-        },
-        {
-          name: "Google Code-in Blog",
-          url: "https://opensource.googleblog.com/2019/01/google-code-in-2018-winners.html"
+          name: "Backend Repo",
+          url: "https://github.com/VIGNESH-BOOPATHI/autoshare-backend"
         }
       ]
     },
     {
-      title: "Google Assistant Action",
+      title: "Spotify UI Clone",
       subtitle:
-        "Developed a Google Assistant Action JavaScript Guru that is available on 2 Billion devices world wide.",
-      image: require("./assets/images/googleAssistantLogo.webp"),
-      imageAlt: "Google Assistant Action Logo",
+        "Recreated the frontend of Spotify using ReactJS to mimic the real UI and player interface. Practiced component design and state handling.",
+      image: require("./assets/images/Banner1.png"), // Add a custom image for Spotify
+      imageAlt: "Spotify Clone UI",
       footerLink: [
         {
-          name: "View Google Assistant Action",
-          url: "https://assistant.google.com/services/a/uid/000000100ee688ee?hl=en"
+          name: "GitHub Repo",
+          url: "https://github.com/VIGNESH-BOOPATHI/Spotify-Clown" // replace with your repo if different
         }
       ]
     },
-
     {
-      title: "PWA Web App Developer",
-      subtitle: "Completed Certifcation from SMIT for PWA Web App Development",
-      image: require("./assets/images/pwaLogo.webp"),
-      imageAlt: "PWA Logo",
+      title: "AI Integrated Quadruped Robot",
+      subtitle:
+        "Designed and built a four-legged AI-powered robot capable of walking autonomously, controlled via voice and internet. Combines embedded systems, IoT, and AI.",
+      image: require("./assets/images/robo.png"), // Add a custom image for your robot
+      imageAlt: "AI Robot",
       footerLink: [
-        {name: "Certification", url: ""},
         {
-          name: "Final Project",
-          url: "https://pakistan-olx-1.firebaseapp.com/"
+          name: "Robot Repo",
+          url: "https://github.com/VIGNESH-BOOPATHI/SPY-DER-Surveillance-Robot"
         }
       ]
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: true // Set false to hide this section
 };
+
 
 // Blogs Section
 
@@ -372,7 +368,7 @@ const contactInfo = {
 
 const twitterDetails = {
   userName: "VIGNESHBOO2002", //Replace "twitter" with your twitter username without @
-  display: true // Set true to display this section, defaults to false
+  display: false // Set true to display this section, defaults to false
 };
 
 const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
