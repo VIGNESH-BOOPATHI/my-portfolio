@@ -18,8 +18,9 @@ jobs:
           node-version: 18.x
       
       - name: Install 🔧 # Install dependencies
-        run: |
-          npm install
+  run: |
+    npm install --legacy-peer-deps --force
+
       
       - name: Check Format
         run: |

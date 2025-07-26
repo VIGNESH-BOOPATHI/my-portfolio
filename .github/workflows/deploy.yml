@@ -30,9 +30,9 @@ jobs:
         run: npm install -g npm@latest
 
       - name: Install and Build 🔧 # Build the Project
-        run: |
-          npm install
-          npm run build
+  run: |
+    npm install --legacy-peer-deps --force
+    npm run build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
