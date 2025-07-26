@@ -289,7 +289,6 @@ const achievementSection = {
   display: true // Set false to hide this section
 };
 
-
 // Blogs Section
 
 // const blogSection = {
