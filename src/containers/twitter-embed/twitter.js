@@ -1,12 +1,12 @@
-import React, { Suspense, useContext, useEffect, useState } from "react";
+import React, {Suspense, useContext, useEffect, useState} from "react";
 import "./twitter.scss";
 import Loading from "../loading/Loading";
-import { TwitterTimelineEmbed } from "react-twitter-embed";
-import { twitterDetails } from "../../portfolio";
+import {TwitterTimelineEmbed} from "react-twitter-embed";
+import {twitterDetails} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Twitter() {
-  const { isDark } = useContext(StyleContext);
+  const {isDark} = useContext(StyleContext);
   const [shouldShowFallback, setShouldShowFallback] = useState(false);
 
   const renderLoader = () => <Loading />;
@@ -39,7 +39,8 @@ export default function Twitter() {
             <div className="error-message">
               <h2>🚫 Unable to load Twitter timeline.</h2>
               <p>
-                Check your privacy settings, network restrictions, or disable any ad blockers.
+                Check your privacy settings, network restrictions, or disable
+                any ad blockers.
               </p>
             </div>
           ) : (

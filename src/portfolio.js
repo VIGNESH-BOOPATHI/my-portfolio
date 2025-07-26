@@ -113,7 +113,8 @@ const educationInfo = {
   display: true, // Set false to hide this section, defaults to true
   schools: [
     {
-      schoolName: "Vel Tech Multi Tech Dr.Rangarajan Dr.Sakunthala Engineering College",
+      schoolName:
+        "Vel Tech Multi Tech Dr.Rangarajan Dr.Sakunthala Engineering College",
       logo: require("./assets/images/velmutitech.png"),
       subHeader: "Electronic And Communication Engineering(ECE)",
       duration: "September 2019 - April 2023",
@@ -121,7 +122,6 @@ const educationInfo = {
       descBullets: [
         "Built a four-legged robot using embedded systems and IoT",
         "Implemented AI for autonomous navigation and voice control"
-
       ]
     },
     {
@@ -130,8 +130,10 @@ const educationInfo = {
       subHeader: "MERN Full Stack Developer",
       duration: "September 2023 - April 2024",
       desc: "Completed full stack training with real-world projects. Built an end-to-end car rental platform inspired by Zoomcar called AutoShare.",
-      descBullets: ["Developed AutoShare using React, Node.js, Express, and MongoDB",
-        "Learned Git, REST APIs, JWT auth, and deployment practices"]
+      descBullets: [
+        "Developed AutoShare using React, Node.js, Express, and MongoDB",
+        "Learned Git, REST APIs, JWT auth, and deployment practices"
+      ]
     }
   ]
 };
@@ -359,12 +361,12 @@ const resumeSection = {
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle: "Discuss a project or just want to say hi? My Inbox is open for all.",
+  subtitle:
+    "Discuss a project or just want to say hi? My Inbox is open for all.",
   number: "+91-6381012767",
   email_address: "vigneshboopathi@gmail.com",
   display: true
 };
-
 
 // Twitter Section
 
