@@ -1,7 +1,8 @@
-import React, {useState, useEffect, lazy, Suspense} from "react";
-import {openSource} from "../../portfolio";
+import React, { useState, useEffect, lazy, Suspense } from "react";
+import { openSource } from "../../portfolio";
 import Contact from "../contact/Contact";
 import Loading from "../loading/Loading";
+import axios from "axios";
 
 const renderLoader = () => <Loading />;
 const GithubProfileCard = lazy(() =>
@@ -9,33 +10,50 @@ const GithubProfileCard = lazy(() =>
 );
 
 export default function Profile() {
-  const [prof, setrepo] = useState([]);
-
-  function setProfileFunction(array) {
-    setrepo(array);
-  }
+  const [prof, setRepo] = useState(null);
 
   useEffect(() => {
-    if (openSource.showGithubProfile === "true") {
-      const getProfileData = () => {
-        fetch("/profile.json")
-          .then(result => {
-            if (result.ok) {
-              return result.json();
+    const fetchGitHubProfile = async () => {
+      try {
+        const username = process.env.REACT_APP_GITHUB_USERNAME;
+        const token = process.env.REACT_APP_GITHUB_TOKEN;
+
+        const headers = token
+          ? {
+              Authorization: `Bearer ${token}`,
             }
-          })
-          .then(response => {
-            setProfileFunction(response.data.user);
-          })
-          .catch(function (error) {
-            console.error(
-              `${error} (because of this error GitHub contact section could not be displayed. Contact section has reverted to default)`
-            );
-            setProfileFunction("Error");
-            openSource.showGithubProfile = "false";
-          });
-      };
-      getProfileData();
+          : {};
+
+        const response = await axios.post(
+          "https://api.github.com/graphql",
+          {
+            query: `
+              query {
+                user(login: "${username}") {
+                  name
+                  bio
+                  location
+                  avatarUrl
+                  url
+                  isHireable
+                }
+              }
+            `,
+          },
+          { headers }
+        );
+
+        setRepo(response.data.data.user);
+      } catch (error) {
+        console.error(
+          `${error} (GitHub API failed — falling back to default contact only)`
+        );
+        setRepo("Error");
+      }
+    };
+
+    if (openSource.showGithubProfile === "true") {
+      fetchGitHubProfile();
     }
   }, []);
 
@@ -43,6 +61,7 @@ export default function Profile() {
     <>
       {openSource.display &&
         openSource.showGithubProfile === "true" &&
+        prof &&
         !(typeof prof === "string" || prof instanceof String) && (
           <Suspense fallback={renderLoader()}>
             <GithubProfileCard prof={prof} key={prof.id} />
