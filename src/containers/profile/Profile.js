@@ -6,42 +6,38 @@ import Loading from "../loading/Loading";
 const GithubProfileCard = lazy(() =>
   import("../../components/githubProfileCard/GithubProfileCard")
 );
+const renderLoader = () => <Loading />;
 
 export default function Profile() {
   const [profile, setProfile] = useState(null);
-  const [showProfile, setShowProfile] = useState(
-    openSource.showGithubProfile === "true"
-  );
 
   useEffect(() => {
-    if (!showProfile) return;
-
-    const fetchProfileData = async () => {
-      try {
-        const response = await fetch("/profile.json");
-        if (!response.ok) throw new Error("Failed to fetch profile.json");
-        const json = await response.json();
-        setProfile(json?.data?.user || null);
-      } catch (error) {
-        console.error(
-          `${error} (GitHub contact section fallback triggered. Default Contact section will be used.)`
-        );
-        setShowProfile(false);
-      }
-    };
-
-    fetchProfileData();
-  }, [showProfile]);
+    if (openSource.showGithubProfile === "true") {
+      fetch(`${process.env.PUBLIC_URL}/profile.json`)
+        .then((res) => {
+          if (!res.ok) throw new Error("Could not load profile.json");
+          return res.json();
+        })
+        .then((data) => {
+          setProfile(data.data.user);
+        })
+        .catch((err) => {
+          console.error("❌ GitHub profile load failed:", err);
+          setProfile("Error");
+          openSource.showGithubProfile = "false"; // fallback
+        });
+    }
+  }, []);
 
   if (
     openSource.display &&
-    showProfile &&
+    openSource.showGithubProfile === "true" &&
     profile &&
-    typeof profile === "object"
+    typeof profile !== "string"
   ) {
     return (
-      <Suspense fallback={<Loading />}>
-        <GithubProfileCard prof={profile} key={profile.id} />
+      <Suspense fallback={renderLoader()}>
+        <GithubProfileCard prof={profile} key={profile.id || profile.name} />
       </Suspense>
     );
   }

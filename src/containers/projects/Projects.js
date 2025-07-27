@@ -5,9 +5,9 @@ import { openSource, socialMediaLinks } from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import Loading from "../../containers/loading/Loading";
 
-const GithubRepoCard = lazy(() =>
-  import("../../components/githubRepoCard/GithubRepoCard")
-);
+const GithubRepoCard = lazy(() => import("../../components/githubRepoCard/GithubRepoCard"));
+const FailedLoading = () => null;
+const renderLoader = () => <Loading />;
 
 export default function Projects() {
   const [repos, setRepos] = useState([]);
@@ -16,14 +16,12 @@ export default function Projects() {
   useEffect(() => {
     const fetchRepoData = async () => {
       try {
-        const response = await fetch("/profile.json");
+      const response = await fetch(process.env.PUBLIC_URL + "/profile.json");
         if (!response.ok) throw new Error("Failed to fetch profile.json");
         const json = await response.json();
-        setRepos(json?.data?.user?.pinnedItems?.edges || []);
+        setRepos(json.data.user.pinnedItems.edges);
       } catch (error) {
-        console.error(
-          `${error} (Projects section failed. Check if /public/profile.json exists and is structured correctly.)`
-        );
+        console.error("❌ Projects section failed to load:", error);
         setRepos("Error");
       }
     };
@@ -31,20 +29,17 @@ export default function Projects() {
     fetchRepoData();
   }, []);
 
-  if (!Array.isArray(repos) || !openSource.display) {
-    return null;
+  if (typeof repos === "string" || !openSource.display) {
+    return <FailedLoading />;
   }
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={renderLoader()}>
       <div className="main" id="opensource">
         <h1 className="project-title">Open Source Projects</h1>
         <div className="repo-cards-div-main">
           {repos.map((v, i) => {
-            if (!v?.node) {
-              console.warn(`Repo index ${i} is malformed`);
-              return null;
-            }
+            if (!v || !v.node) return null;
             return (
               <GithubRepoCard repo={v} key={v.node.id} isDark={isDark} />
             );
