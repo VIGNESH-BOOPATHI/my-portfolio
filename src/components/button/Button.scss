@@ -1,4 +1,4 @@
-@import "../../_globalColor";
+@use "../../_globalColor" as *;
 
 .main-button {
   background-color: $buttonColor;
@@ -18,20 +18,24 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out 0s;
 }
+
 .main-button:hover {
   background-color: $darkBoxShadow2;
   color: $buttonColor;
   transition: all 0.3s ease 0s;
   transform: translateY(-3px);
 }
+
 .project-button {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
+
 .project-button > .main-button {
   margin-right: 0 !important;
 }
+
 /* Media Query */
 @media (max-width: 768px) {
   .main-button {
@@ -40,6 +44,7 @@
     margin-right: 0px;
   }
 }
+
 @media (max-width: 320px) {
   .main-button {
     font-size: 0.75rem;
