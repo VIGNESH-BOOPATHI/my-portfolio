@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useContext, Suspense, lazy } from "react";
+import React, {useState, useEffect, useContext, Suspense, lazy} from "react";
 import "./Project.scss";
 import Button from "../../components/button/Button";
-import { openSource, socialMediaLinks } from "../../portfolio";
+import {openSource, socialMediaLinks} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import Loading from "../../containers/loading/Loading";
 
-const GithubRepoCard = lazy(() =>
-  import("../../components/githubRepoCard/GithubRepoCard")
+const GithubRepoCard = lazy(
+  () => import("../../components/githubRepoCard/GithubRepoCard")
 );
 const FailedLoading = () => null;
 const renderLoader = () => <Loading />;
 
 export default function Projects() {
   const [repos, setRepos] = useState([]);
-  const { isDark } = useContext(StyleContext); // You can keep this if dark mode context is needed
+  const {isDark} = useContext(StyleContext); // You can keep this if dark mode context is needed
 
   useEffect(() => {
     const fetchRepoData = async () => {
