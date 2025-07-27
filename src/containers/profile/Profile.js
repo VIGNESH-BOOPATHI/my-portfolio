@@ -2,7 +2,6 @@ import React, {useState, useEffect, lazy, Suspense} from "react";
 import {openSource} from "../../portfolio";
 import Contact from "../contact/Contact";
 import Loading from "../loading/Loading";
-import axios from "axios";
 
 const renderLoader = () => <Loading />;
 const GithubProfileCard = lazy(
@@ -10,64 +9,41 @@ const GithubProfileCard = lazy(
 );
 
 export default function Profile() {
-  const [prof, setRepo] = useState(null);
+  const [profile, setProfile] = useState(null);
 
   useEffect(() => {
-    const fetchGitHubProfile = async () => {
+    const fetchProfileData = async () => {
       try {
-        const username = process.env.REACT_APP_GITHUB_USERNAME;
-        const token = process.env.REACT_APP_GITHUB_TOKEN;
-
-        const headers = token
-          ? {
-              Authorization: `Bearer ${token}`
-            }
-          : {};
-
-        const response = await axios.post(
-          "https://api.github.com/graphql",
-          {
-            query: `
-              query {
-                user(login: "${username}") {
-                  name
-                  bio
-                  location
-                  avatarUrl
-                  url
-                  isHireable
-                }
-              }
-            `
-          },
-          {headers}
-        );
-
-        setRepo(response.data.data.user);
+        const response = await fetch("/profile.json");
+        if (!response.ok) throw new Error("Network response was not ok");
+        const json = await response.json();
+        setProfile(json.data.user);
       } catch (error) {
         console.error(
-          `${error} (GitHub API failed — falling back to default contact only)`
+          `${error} (GitHub contact section fallback triggered. Contact section will display default content.)`
         );
-        setRepo("Error");
+        setProfile("Error");
+        openSource.showGithubProfile = "false"; // fall back to default contact
       }
     };
 
     if (openSource.showGithubProfile === "true") {
-      fetchGitHubProfile();
+      fetchProfileData();
     }
   }, []);
 
-  return (
-    <>
-      {openSource.display &&
-        openSource.showGithubProfile === "true" &&
-        prof &&
-        !(typeof prof === "string" || prof instanceof String) && (
-          <Suspense fallback={renderLoader()}>
-            <GithubProfileCard prof={prof} key={prof.id} />
-          </Suspense>
-        )}
-      <Contact />
-    </>
-  );
+  if (
+    openSource.display &&
+    openSource.showGithubProfile === "true" &&
+    profile &&
+    typeof profile !== "string"
+  ) {
+    return (
+      <Suspense fallback={renderLoader()}>
+        <GithubProfileCard prof={profile} key={profile.id} />
+      </Suspense>
+    );
+  } else {
+    return <Contact />;
+  }
 }
