@@ -1,80 +1,40 @@
-import React, {useState, useEffect, useContext, Suspense, lazy} from "react";
+import React, { useState, useEffect, useContext, Suspense, lazy } from "react";
 import "./Project.scss";
 import Button from "../../components/button/Button";
-import {openSource, socialMediaLinks} from "../../portfolio";
+import { openSource, socialMediaLinks } from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import Loading from "../../containers/loading/Loading";
-import axios from "axios";
+
+const GithubRepoCard = lazy(() =>
+  import("../../components/githubRepoCard/GithubRepoCard")
+);
+const FailedLoading = () => null;
+const renderLoader = () => <Loading />;
 
 export default function Projects() {
-  const GithubRepoCard = lazy(
-    () => import("../../components/githubRepoCard/GithubRepoCard")
-  );
-  const FailedLoading = () => null;
-  const renderLoader = () => <Loading />;
-  const [repo, setRepo] = useState([]);
-  const {isDark} = useContext(StyleContext);
+  const [repos, setRepos] = useState([]);
+  const { isDark } = useContext(StyleContext); // You can keep this if dark mode context is needed
 
   useEffect(() => {
-    const fetchPinnedRepos = async () => {
+    const fetchRepoData = async () => {
       try {
-        const username = process.env.REACT_APP_GITHUB_USERNAME;
-        const token = process.env.REACT_APP_GITHUB_TOKEN;
-
-        const headers = token
-          ? {
-              Authorization: `Bearer ${token}`
-            }
-          : {};
-
-        const response = await axios.post(
-          "https://api.github.com/graphql",
-          {
-            query: `
-              query {
-                user(login: "${username}") {
-                  pinnedItems(first: 6, types: [REPOSITORY]) {
-                    edges {
-                      node {
-                        ... on Repository {
-                          id
-                          name
-                          description
-                          url
-                          forkCount
-                          stargazers {
-                            totalCount
-                          }
-                          diskUsage
-                          primaryLanguage {
-                            name
-                            color
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            `
-          },
-          {headers}
-        );
-
-        setRepo(response.data.data.user.pinnedItems.edges);
+        const response = await fetch("/profile.json");
+        if (!response.ok) throw new Error("Network response was not ok");
+        const json = await response.json();
+        setRepos(json.data.user.pinnedItems.edges);
       } catch (error) {
         console.error(
-          `${error} (Projects section failed to load. Also check API token permissions or GraphQL query.)`
+          `${error} (Projects section failed. Check if /profile.json exists and is correctly structured.)`
         );
-        setRepo("Error");
+        setRepos("Error");
       }
     };
 
-    fetchPinnedRepos();
+    fetchRepoData();
   }, []);
 
   if (
-    !(typeof repo === "string" || repo instanceof String) &&
+    !(typeof repos === "string" || repos instanceof String) &&
     openSource.display
   ) {
     return (
@@ -82,9 +42,9 @@ export default function Projects() {
         <div className="main" id="opensource">
           <h1 className="project-title">Open Source Projects</h1>
           <div className="repo-cards-div-main">
-            {repo.map((v, i) => {
+            {repos.map((v, i) => {
               if (!v) {
-                console.error(`Repo #${i} is undefined`);
+                console.error(`Repository at index ${i} is undefined.`);
                 return null;
               }
               return (
