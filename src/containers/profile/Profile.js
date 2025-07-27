@@ -1,49 +1,50 @@
-import React, {useState, useEffect, lazy, Suspense} from "react";
-import {openSource} from "../../portfolio";
+import React, { useState, useEffect, lazy, Suspense } from "react";
+import { openSource } from "../../portfolio";
 import Contact from "../contact/Contact";
 import Loading from "../loading/Loading";
 
-const renderLoader = () => <Loading />;
-const GithubProfileCard = lazy(
-  () => import("../../components/githubProfileCard/GithubProfileCard")
+const GithubProfileCard = lazy(() =>
+  import("../../components/githubProfileCard/GithubProfileCard")
 );
 
 export default function Profile() {
   const [profile, setProfile] = useState(null);
+  const [showProfile, setShowProfile] = useState(
+    openSource.showGithubProfile === "true"
+  );
 
   useEffect(() => {
+    if (!showProfile) return;
+
     const fetchProfileData = async () => {
       try {
         const response = await fetch("/profile.json");
-        if (!response.ok) throw new Error("Network response was not ok");
+        if (!response.ok) throw new Error("Failed to fetch profile.json");
         const json = await response.json();
-        setProfile(json.data.user);
+        setProfile(json?.data?.user || null);
       } catch (error) {
         console.error(
-          `${error} (GitHub contact section fallback triggered. Contact section will display default content.)`
+          `${error} (GitHub contact section fallback triggered. Default Contact section will be used.)`
         );
-        setProfile("Error");
-        openSource.showGithubProfile = "false"; // fall back to default contact
+        setShowProfile(false);
       }
     };
 
-    if (openSource.showGithubProfile === "true") {
-      fetchProfileData();
-    }
-  }, []);
+    fetchProfileData();
+  }, [showProfile]);
 
   if (
     openSource.display &&
-    openSource.showGithubProfile === "true" &&
+    showProfile &&
     profile &&
-    typeof profile !== "string"
+    typeof profile === "object"
   ) {
     return (
-      <Suspense fallback={renderLoader()}>
+      <Suspense fallback={<Loading />}>
         <GithubProfileCard prof={profile} key={profile.id} />
       </Suspense>
     );
-  } else {
-    return <Contact />;
   }
+
+  return <Contact />;
 }
