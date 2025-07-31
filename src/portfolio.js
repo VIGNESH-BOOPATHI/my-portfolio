@@ -210,7 +210,7 @@ const bigProjects = {
           url: "https://github.com/VIGNESH-BOOPATHI/autoshare-backend"
         },
         {
-          name: "Project site",
+          name: "Demo site",
           url: "https://main--zoomcar-autoshare.netlify.app/"
         }
       ]
@@ -226,7 +226,7 @@ const bigProjects = {
           url: "https://github.com/VIGNESH-BOOPATHI/Spotify-Clown"
         },
         {
-          name: "Project site",
+          name: "Demo site",
           url: "https://vignesh-boopathi.github.io/Spotify-Clown/"
         }
       ]
