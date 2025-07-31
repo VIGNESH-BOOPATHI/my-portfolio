@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.58cc485f.css",
-    "main.js": "/my-portfolio/static/js/main.20b21544.js",
+    "main.js": "/my-portfolio/static/js/main.55621938.js",
     "static/css/487.bb36206c.chunk.css": "/my-portfolio/static/css/487.bb36206c.chunk.css",
     "static/js/487.a1ec5645.chunk.js": "/my-portfolio/static/js/487.a1ec5645.chunk.js",
     "static/css/990.c6a7ee28.chunk.css": "/my-portfolio/static/css/990.c6a7ee28.chunk.css",
@@ -13,16 +13,14 @@
     "static/media/HennyPenny-Regular.ttf": "/my-portfolio/static/media/HennyPenny-Regular.99be21913fda42f89d5c.ttf",
     "static/media/manOnTable.svg": "/my-portfolio/static/media/manOnTable.8f117eb207e57ed8f89d67d595aceb45.svg",
     "static/media/velmutitech.png": "/my-portfolio/static/media/velmutitech.1c4fdee32b977f833450.png",
-    "static/media/Vignesh_Boopathi_Resume.pdf": "/my-portfolio/static/media/Vignesh_Boopathi_Resume.feb4a916b9451b53f3ee.pdf",
+    "static/media/Vignesh_Boopathi_Resume.pdf": "/my-portfolio/static/media/Vignesh_Boopathi_Resume.947ecee4c300ecb252fe.pdf",
     "static/media/contactMailDark.svg": "/my-portfolio/static/media/contactMailDark.1db650d351729a0f17b4e3104e6a7b7a.svg",
     "static/media/developerActivity.svg": "/my-portfolio/static/media/developerActivity.2c0445cae86f4243433a2f5a22b2c031.svg",
     "static/media/Screenshot 2025-07-25 224459.png": "/my-portfolio/static/media/Screenshot 2025-07-25 224459.e870d1ae16af60632f2b.png",
     "static/media/skill.svg": "/my-portfolio/static/media/skill.35a147662ab0a1d15e579690446e0258.svg",
-    "static/media/saayaHealthLogo.webp": "/my-portfolio/static/media/saayaHealthLogo.60b27d1f184fadfce43a.webp",
-    "static/media/nextuLogo.webp": "/my-portfolio/static/media/nextuLogo.e033dbfa4c58c0a906aa.webp",
     "index.html": "/my-portfolio/index.html",
     "main.58cc485f.css.map": "/my-portfolio/static/css/main.58cc485f.css.map",
-    "main.20b21544.js.map": "/my-portfolio/static/js/main.20b21544.js.map",
+    "main.55621938.js.map": "/my-portfolio/static/js/main.55621938.js.map",
     "487.bb36206c.chunk.css.map": "/my-portfolio/static/css/487.bb36206c.chunk.css.map",
     "487.a1ec5645.chunk.js.map": "/my-portfolio/static/js/487.a1ec5645.chunk.js.map",
     "990.c6a7ee28.chunk.css.map": "/my-portfolio/static/css/990.c6a7ee28.chunk.css.map",
@@ -30,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.58cc485f.css",
-    "static/js/main.20b21544.js"
+    "static/js/main.55621938.js"
   ]
 }
