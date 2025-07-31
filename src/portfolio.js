@@ -123,17 +123,6 @@ const educationInfo = {
         "Built a four-legged robot using embedded systems and IoT",
         "Implemented AI for autonomous navigation and voice control"
       ]
-    },
-    {
-      schoolName: "GUVI Geek Networks, IITM Research Park",
-      logo: require("./assets/images/Screenshot 2025-07-25 224459.png"),
-      subHeader: "MERN Full Stack Developer",
-      duration: "September 2023 - April 2024",
-      desc: "Completed full stack training with real-world projects. Built an end-to-end car rental platform inspired by Zoomcar called AutoShare.",
-      descBullets: [
-        "Developed AutoShare using React, Node.js, Express, and MongoDB",
-        "Learned Git, REST APIs, JWT auth, and deployment practices"
-      ]
     }
   ]
 };
@@ -204,33 +193,58 @@ const openSource = {
 
 const bigProjects = {
   title: "Big Projects",
-  subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
+  subtitle: "My Major Projects Built with Full Stack & Robotics Technologies",
   projects: [
     {
-      image: require("./assets/images/saayaHealthLogo.webp"),
-      projectName: "Saayahealth",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      image: require("./assets/images/car-site.png"),
+      projectName: "AutoShare Car Rental Platform",
+      projectDesc:
+        "A full-stack Zoomcar-like platform with separate React frontend and Node.js backend. Includes user auth, booking system, and MongoDB integration.",
       footerLink: [
         {
-          name: "Visit Website",
-          url: "http://saayahealth.com/"
+          name: "Frontend Repo",
+          url: "https://github.com/VIGNESH-BOOPATHI/autoshare-frontend"
+        },
+        {
+          name: "Backend Repo",
+          url: "https://github.com/VIGNESH-BOOPATHI/autoshare-backend"
+        },
+        {
+          name: "Project site",
+          url: "https://main--zoomcar-autoshare.netlify.app/"
         }
-        //  you can add extra buttons here.
       ]
     },
     {
-      image: require("./assets/images/nextuLogo.webp"),
-      projectName: "Nextu",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      image: require("./assets/images/Banner1.png"),
+      projectName: "Spotify UI Clone",
+      projectDesc:
+        "A pixel-perfect clone of the Spotify web player built using ReactJS. Focused on responsive UI and reusable components.",
       footerLink: [
         {
-          name: "Visit Website",
-          url: "http://nextu.se/"
+          name: "GitHub Repo",
+          url: "https://github.com/VIGNESH-BOOPATHI/Spotify-Clown"
+        },
+        {
+          name: "Project site",
+          url: "https://vignesh-boopathi.github.io/Spotify-Clown/"
+        }
+      ]
+    },
+    {
+      image: require("./assets/images/robo.png"),
+      projectName: "AI Quadruped Surveillance Robot",
+      projectDesc:
+        "Built a four-legged autonomous robot using Raspberry Pi, Arduino, voice control, and internet-based command systems.",
+      footerLink: [
+        {
+          name: "Robot Repo",
+          url: "https://github.com/VIGNESH-BOOPATHI/SPY-DER-Surveillance-Robot"
         }
       ]
     }
   ],
-  display: false // Set false to hide this section, defaults to true
+  display: true
 };
 
 // Achievement Section
@@ -243,45 +257,19 @@ const achievementSection = {
 
   achievementsCards: [
     {
-      title: "AutoShare Car Rental Platform",
+      title: "GUVI MERN Full Stack Developer Certification",
       subtitle:
-        "Built a full-stack Zoomcar-like car rental application with separate React frontend and Node.js/Express backend. Used MongoDB for database and JWT for user authentication.",
-      image: require("./assets/images/car-site.png"), // Add a custom image for AutoShare
-      imageAlt: "AutoShare Project",
+        "Completed 7-month immersive training covering React, Node.js, MongoDB, Express, Git, JWT, REST API, and deployment. Built several real-world projects including AutoShare.",
+      image: require("./assets/images/Screenshot 2025-07-25 224459.png"), // Same image as in education
+      imageAlt: "GUVI Certificate",
       footerLink: [
         {
-          name: "Frontend Repo",
-          url: "https://github.com/VIGNESH-BOOPATHI/autoshare-frontend"
+          name: "Institute",
+          url: "https://www.guvi.in"
         },
         {
-          name: "Backend Repo",
-          url: "https://github.com/VIGNESH-BOOPATHI/autoshare-backend"
-        }
-      ]
-    },
-    {
-      title: "Spotify UI Clone",
-      subtitle:
-        "Recreated the frontend of Spotify using ReactJS to mimic the real UI and player interface. Practiced component design and state handling.",
-      image: require("./assets/images/Banner1.png"), // Add a custom image for Spotify
-      imageAlt: "Spotify Clone UI",
-      footerLink: [
-        {
-          name: "GitHub Repo",
-          url: "https://github.com/VIGNESH-BOOPATHI/Spotify-Clown" // replace with your repo if different
-        }
-      ]
-    },
-    {
-      title: "AI Integrated Quadruped Robot",
-      subtitle:
-        "Designed and built a four-legged AI-powered robot capable of walking autonomously, controlled via voice and internet. Combines embedded systems, IoT, and AI.",
-      image: require("./assets/images/robo.png"), // Add a custom image for your robot
-      imageAlt: "AI Robot",
-      footerLink: [
-        {
-          name: "Robot Repo",
-          url: "https://github.com/VIGNESH-BOOPATHI/SPY-DER-Surveillance-Robot"
+          name: "View Certificate",
+          url: "https://drive.google.com/file/d/10woEAjUjUG6aRYt7WCT7nsjuMFOIX0hk/view?usp=sharing"
         }
       ]
     }
